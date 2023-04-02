@@ -67,7 +67,7 @@
     right: 12vw;
   }
   h1 {
-    font-size: 25px;
+    font-size: 22px;
     letter-spacing: 5px;
     -webkit-text-stroke: 0.6px #ffa200;
     margin-bottom: 1em;
