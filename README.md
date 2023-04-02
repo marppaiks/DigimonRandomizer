@@ -1,4 +1,6 @@
 # Digimon Randomizer
+## Click here to view in netlify: <br>
+[Click here](https://digimonrandomizer.netlify.app/)
 
 ## Svelte end-exercise for the course _Frontend basics_
 
