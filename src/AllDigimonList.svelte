@@ -52,7 +52,7 @@
   }
   .ulkobutton {
     position: fixed;
-    top: 2vh;
+    top: 4vh;
     right: 12vw;
   }
   p {
