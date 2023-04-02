@@ -1,4 +1,5 @@
 <script>
+  //Komponentti, joka antaa kaikki Digimonit API:sta fetchillä listana
   import { fade, fly } from 'svelte/transition';
   import { onMount } from 'svelte';
   import { createEventDispatcher } from 'svelte';
@@ -12,11 +13,11 @@
   let name = 'List of all Digimon';
 
   function sulje() {
-    dispatch('sulje');
+    dispatch('sulje'); //Nappi sulkee modaalin
   }
 
   onMount(async () => {
-    //Hakii kaikki digimannit taulukkoon objekteina
+    //Hakii kaikki digimannit taulukkoon objekteina (Heti kun sovellus käynnistyy)
     const response = await fetch('https://digimon-api.vercel.app/api/digimon');
     if (!response.ok) {
       throw new Error('Cannot fetch data.');
@@ -33,6 +34,7 @@
   <div slot="header"><h1>{name}</h1></div>
 
   {#each digimonit as digimon}
+    <!-- Jokainen nimi kerrallaan tulostetaan (suoritetaan vasta kun promise fullfilled) -->
     <div class="lista">
       <p in:fly={{ duration: 2000, x: 0, y: 200 }} out:fade>
         {digimon.name}

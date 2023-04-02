@@ -1,8 +1,10 @@
 <script>
+  // Komponentti, joka tulostaa yhden Digimonin tiedot
   import { fade, fly } from 'svelte/transition';
   import { onMount } from 'svelte';
   import { createEventDispatcher } from 'svelte';
   const dispatch = createEventDispatcher();
+  // Custom eventti import on: -direktiiviin
 
   export let close = 'Close';
 
@@ -22,7 +24,7 @@
     let data = await response.json();
 
     let arvottuLuku = Math.floor(Math.random() * (data.length - 1) + 1);
-    return data[arvottuLuku]; //Hakee YHDEN RANDOMIN
+    return data[arvottuLuku]; //Hakee YHDEN RANDOMIN (palautettu promisen arvo)
   };
 
   onMount(async () => {
@@ -37,7 +39,9 @@
   </div>
   {#await getDigimon()}
     <div class="centeri"><p>...waiting</p></div>
+    <!-- Tämä näkyy niin kauan, kunnes haku on valmis-->
   {:then digimon}
+    <!-- Promise fullfilled: tulokset -->
     <h1>{digimon.name}</h1>
     <img
       in:fly={{ duration: 2500, x: 0, y: -300 }}
@@ -47,6 +51,7 @@
     />
     <div class="centeri"><p>Level: {digimon.level}</p></div>
   {:catch error}
+    <!-- Jos haku ei onnistu -->
     <div class="centeri"><p>An error occurred!</p></div>
   {/await}
 </Modal>

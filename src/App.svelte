@@ -45,6 +45,7 @@
 </main>
 <Footer>&copy; {appInfo.ownName} {appInfo.year} for {appInfo.course}</Footer>
 
+<!-- Footer komponentille propsit-->
 <style>
   b {
     -webkit-text-stroke: 0.4px #c300ff;
